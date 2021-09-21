@@ -58,3 +58,14 @@ os.chdir("../data")
 os.rename("HAM10000_images_part_1","train")
 os.rmdir("HAM10000_images_part_2")
 os.chdir(current_dir)
+
+
+current_dir = os.getcwd()
+
+
+
+
+
+
+
+
