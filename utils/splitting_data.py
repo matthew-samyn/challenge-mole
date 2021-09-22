@@ -47,7 +47,7 @@ for i, row in df_cancer_type.iterrows():
 for label in (labels.keys()):
     os.chdir(f"{label}")
     number_of_pictures = len(os.listdir())
-
+    test_amount = round(number_of_pictures*0.2)
     for c in random.sample(os.listdir(),test_amount):
         shutil.move(c, f"../../test/{label}")
     os.chdir("..")
@@ -58,14 +58,3 @@ os.chdir("../data")
 os.rename("HAM10000_images_part_1","train")
 os.rmdir("HAM10000_images_part_2")
 os.chdir(current_dir)
-
-
-current_dir = os.getcwd()
-
-
-
-
-
-
-
-
