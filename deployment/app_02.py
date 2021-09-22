@@ -37,7 +37,7 @@ with dataset:
         # model = keras.models.load_model('models/best_model.h5')
         # label = model.predict(image)
 
-        label = 5 # test
+        label = 6 # test
         st.write('label= ', label)
 
         # labels = {"akiec": 0, "bcc": 1, "bkl": 2, "df": 3, "mel": 4, "nv": 5, "vasc": 6}
