@@ -25,18 +25,22 @@ for folder in os.listdir():
         print('before after resampling: ', len(images))
     if len(images) < 150:
         print('before resampling: ', len(images))
-        for c in random.sample(os.listdir(), (len(images) * 10)):
-            shutil.copy(c, os.getcwd())
+        for c in os.listdir():
+            for x in range(10):
+                shutil.copy(c, os.getcwd())
         print('before after resampling: ', len(images))
     elif 150 < len(images) < 600:
         print('before resampling: ', len(images))
-        for c in random.sample(os.listdir(), len(images) * 4):
-            shutil.copy(c, os.getcwd())
+        for c in os.listdir():
+            for x in range(4):
+                shutil.copy(c, os.getcwd())
         print('before after resampling: ', len(images))
     elif 600 < len(images) < 1200:
         print('before resampling: ', len(images))
-        for c in random.sample(os.listdir(), len(images) * 1.2):
-            shutil.copy(c, os.getcwd())
+        for c in os.listdir():
+            for x in range(2):
+                shutil.copy(c, os.getcwd())
     os.chdir(current_directory)
+
 current_dir = os.getcwd()
 os.chdir(current_dir)
