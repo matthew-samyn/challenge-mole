@@ -108,7 +108,6 @@ def plot_probabilities(y_prediction: np.ndarray):
     plt.xlabel('Probability of predicted class')
     plt.ylabel('Certainty')
     plt.show()
-fig, ax = plt.subplots(figsize=(6,15))
 
 
 
