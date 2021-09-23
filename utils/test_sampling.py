@@ -11,8 +11,8 @@ import math
 # Giving the biggest folder size
 biggest_size = 5364
 
-size_wanted_gone = math.floor(biggest_size/3)
-size_wanted = biggest_size - size_wanted_gone
+size_wanted_gone = 4764
+size_wanted = 600
 
 #creating the folders to copy the images
 current_dir = os.getcwd()
@@ -37,13 +37,18 @@ for folder in os.listdir():
         print('After resampling: ', len(os.listdir()))
     else:
         number_of_images = len(images)
+        amount_left = number_of_images % size_wanted
         amount_to_multiply = math.floor(size_wanted/number_of_images)
         print("Current directory: ", folder)
         print('Before resampling: ', number_of_images)
-        for c in os.listdir():
-            for x in range(amount_to_multiply):
-                shutil.copy(c, f"{copy_directory}")
-                os.rename(f"{copy_directory}/{c}", f"{c[:-4]}_{x}.jpg")
+        if amount_to_multiply == 0:
+            for c in random.sample(os.listdir(), amount_left):
+                shutil.move(c, "../../trash_images")
+        else:
+            for c in os.listdir():
+                for x in range(amount_to_multiply):
+                    shutil.copy(c, f"{copy_directory}")
+                    os.rename(f"{copy_directory}/{c}", f"{c[:-4]}_{x}.jpg")
         print('After resampling: ', len(os.listdir()))
         print("")
     os.chdir(current_directory)
