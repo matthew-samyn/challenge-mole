@@ -3,12 +3,23 @@ import os
 import glob
 import random
 import shutil
+import math
 
 
 #names_folders_cancer = ['akiec', 'bcc', 'bkl', 'df', 'mel', 'nv', 'vasc']
-# TODO change test amount: it is a percentage
 
+# Giving the biggest folder size
+biggest_size = 5364
+
+size_wanted_gone = math.floor(biggest_size/3)
+size_wanted = biggest_size - size_wanted_gone
+
+#creating the folders to copy the images
+current_dir = os.getcwd()
 os.chdir("../data/train")
+os.mkdir("../copy_directory")
+os.mkdir("../trash_images")
+copy_directory = "../../copy_directory"
 
 #destination_folder = []
 #for dir in os.getcwd():
@@ -17,28 +28,27 @@ for folder in os.listdir():
     current_directory = os.getcwd()
     os.chdir(folder)
     images = os.listdir()
-    if len(images) > 5000:
-        print(os.getcwd())
-        print('before resampling: ', len(images))
-#            for c in random.sample(os.listdir(), (len(images) / 2)):
-#                shutil.move(c, os.chdir('../../trash_images'))
-        print('before after resampling: ', len(images))
-    if len(images) < 150:
-        print(os.getcwd())
-        print('before resampling: ', len(images))
-#            for c in random.sample(os.listdir(), (len(images) * 5)):
-#                shutil.copy(c, os.getcwd())
-        print('before after resampling: ', len(images))
-    elif 300 < len(images) < 600:
-        print(os.getcwd())
-        print('before resampling: ', len(images) * 2)
-#            for c in random.sample(os.listdir(), test_amount):
-#                shutil.copy(c, os.getcwd())
-        print('before after resampling: ', len(images))
-    elif 1000 < len(images) < 1200:
-        print(os.getcwd())
-        print('before resampling: ', len(images))
-        pass
+    if len(images) == biggest_size:
+        number_of_images = len(images)
+        print("Current directory: ", folder)
+        print('Before resampling: ', number_of_images)
+        for c in random.sample(os.listdir(), size_wanted_gone):
+            shutil.move(c, "../../trash_images")
+        print('After resampling: ', len(os.listdir()))
+    else:
+        number_of_images = len(images)
+        amount_to_multiply = math.floor(size_wanted/number_of_images)
+        print("Current directory: ", folder)
+        print('Before resampling: ', number_of_images)
+        for c in os.listdir():
+            for x in range(amount_to_multiply):
+                shutil.copy(c, f"{copy_directory}")
+                os.rename(f"{copy_directory}/{c}", f"{c[:-4]}_{x}.jpg")
+        print('After resampling: ', len(os.listdir()))
+        print("")
     os.chdir(current_directory)
+
+os.rmdir("../copy_directory")
 current_dir = os.getcwd()
 os.chdir(current_dir)
+
