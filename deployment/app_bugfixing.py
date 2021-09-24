@@ -44,7 +44,7 @@ with dataset:
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
         st.image(image, caption='Uploaded image', width=600)
-        prediction_probabilities = mole_classification(image, 'models/best_model.h5')
+        prediction_probabilities = mole_classification(image, 'models/model_costumizedtraining0.2541_0.2867.h5')
 
         # plot the probabilities
         fig = plot_mole_probabilities(prediction_probabilities)
@@ -77,14 +77,14 @@ with dataset:
             st.write('---')
 
         st.subheader(" 7 types of skin lesions :")
-        image = Image.open('images/7_type_cancers_02.png')
+        image = Image.open('images/7_type_moles_02.png')
         st.image(image, width=600)
         st.write('---')
 
 with features:
     # st.header(" Dataset ")
     st.title(" Informations : ")
-    st.write("Dermatologists nearby : [www.skindr.com](https://www.skindr.com/?utm_source=google&utm_medium=cpc&utm_campaign=push_consultations&gclid=CjwKCAjwy7CKBhBMEiwA0Eb7ao2QZLQ5BC5Nsx-3wcrT58YCsZZYiElSz-LGIHHzK5hxk39HSyf50hoCev8QAvD_BwE)")
+    st.write("Dermatologists nearby : [www.skincare.be](https://www.skincare.be)")
     st.write("Dermatologists near me : [Google search](https://www.google.com/search?q=dermatologist+near+me&rlz=1C1JZAP_enBE892BE892&oq=&aqs=chrome.0.35i39i362l8...8.495618548j0j15&sourceid=chrome&ie=UTF-8)")
     st.write("Skin cancer: [www.skincancer.org](https://www.skincancer.org/skin-cancer-information/)")
     st.write('---')

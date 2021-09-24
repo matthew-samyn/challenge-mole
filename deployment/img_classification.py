@@ -16,9 +16,6 @@ cancer_risk = ["Malignous","Malignous","Benign","Benign",
 
 def plot_mole_probabilities(prediction_probabilities: List):
     proba = np.array(prediction_probabilities)*100
-    print(list(labels.values()))
-    print(proba)
-    print(cancer_risk)
 
     df = pd.DataFrame({"label":list(labels.values()),
                                 "probability":proba,
