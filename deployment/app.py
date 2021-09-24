@@ -44,7 +44,7 @@ with dataset:
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
         st.image(image, caption='Uploaded image', width=600)
-        prediction_probabilities = mole_classification(image, 'models/model_costumizedtraining0.2541_0.2867.h5')
+        prediction_probabilities = mole_classification(image, 'models/best_model.h5')
 
         # plot the probabilities
         fig = plot_mole_probabilities(prediction_probabilities)
