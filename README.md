@@ -14,6 +14,7 @@ The dataset provided by the client is here https://www.kaggle.com/kmader/skin-ca
 
 ## Python version
 * Python 3.7
+* Tensorflow
 
 ## Packages used
 * pandas
