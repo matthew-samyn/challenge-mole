@@ -3,10 +3,7 @@
 
 # Description
 This is a job we received from the company "skinCare".
-The demands from companie for a tool that would be able to detect moles that need to be handled by doctors.
-This diagnose is first by axamine the photo with the area of the stain and give the probability of the mole's type.
-For the ease of the tool, a web-server is installed and the user has juist dropped the image in the "Upload zone".
-After the user will receive the usefull informations.
+The job entailed that we would develop a website that would be able to classify pictures of moles.
 
 The dataset provided by the client is here https://www.kaggle.com/kmader/skin-cancer-mnist-ham10000
    
@@ -14,9 +11,10 @@ The dataset provided by the client is here https://www.kaggle.com/kmader/skin-ca
 
 ## Python version
 * Python 3.7
-* Tensorflow
 
 ## Packages used
+* Tensorflow
+* sklearn
 * pandas
 * numpy
 * matplotlib.pyplot
@@ -33,13 +31,13 @@ The dataset provided by the client is here https://www.kaggle.com/kmader/skin-ca
 
 
 # Visuals
-## Map
-  
+## Overview of the model
 
-## Heatmap 
 
-![](Heatmap_showing_correlations.png)
-
+# Future work
+The model was overfitting by a lot.  
+To improve accuracy there has to be looked at more data augmentation techniques  
+to filter the images given to the model.
 
 # Contributors
 | Name           | GitHub                                                                              |
