@@ -47,7 +47,7 @@ The dataset provided by the client is here https://www.kaggle.com/kmader/skin-ca
 | Léonor Drummond | <a href="https://github.com/lvendrix">https://github.com/Itadrummond               |
 | Matthew Samyn  | <a href="https://github.com/matthew-samyn">https://github.com/matthew-samyn
 | Hoang Minh Nguyen  | <a href="https://github.com/Minh6019">https://github.com/Minh6019        |
-| Quinten  | <a href="https://github.com/Quinten">https://github.com/QuintenMM                |
+| Quinten Wildermeersch  | <a href="https://github.com/Quinten">https://github.com/QuintenMM                |
 
 
 # Timeline
