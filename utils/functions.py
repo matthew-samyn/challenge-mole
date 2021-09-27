@@ -5,8 +5,8 @@ import os
 import re
 from typing import Tuple
 import matplotlib.pyplot as plt
+import cv2
 #from model import *
-
 
 
 def get_score(h5_file:str) -> Tuple[float, float]:
@@ -148,3 +148,19 @@ def plot_and_print_loss(history):
 train_score = {history.history['loss'][-1]}
 val_score   = {history.history['val_loss'][-1]}""")
     plt.show()
+
+
+def preprocessing_hair_remove(image):
+    """ Removes hairs from mole-images """
+    image= plt.imread(image)
+    # convert image to grayScale
+    grayScale = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
+    # kernel for morphologyEx
+    kernel = cv2.getStructuringElement(1,(17,17))
+    # apply MORPH_BLACKHAT to grayScale image
+    blackhat = cv2.morphologyEx(grayScale, cv2.MORPH_BLACKHAT, kernel)
+    # apply thresholding to blackhat
+    _,threshold = cv2.threshold(blackhat,10,255,cv2.THRESH_BINARY)
+    # inpaint with original image and threshold image
+    final_image = cv2.inpaint(image,threshold,1,cv2.INPAINT_TELEA)
+    return final_image
